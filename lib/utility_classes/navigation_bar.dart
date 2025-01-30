@@ -16,8 +16,8 @@ class _NavigationBarState extends State<MyNavigationBar> {
       decoration: const BoxDecoration(
           color: MyColorPallete.appBarColor,
           borderRadius: BorderRadius.all(Radius.circular(100))),
-      width: MyAdaptiveDimension.width(context) * .7,
-      height: MyAdaptiveDimension.height(context) * .08,
+      width: MyAdaptiveDimension.getWidth(context) * .7,
+      height: MyAdaptiveDimension.getHeight(context) * .08,
       margin: const EdgeInsets.only(bottom: 15),
     );
   }

@@ -9,8 +9,6 @@ void main() {
     DeviceOrientation.portraitUp, // Only allow portrait mode
   ]).then((_) {
     runApp(const MyApp());
-    // SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
-    //     overlays: [SystemUiOverlay.top]);
   });
 
   SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
