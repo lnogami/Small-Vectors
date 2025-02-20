@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:small_vectors/triumph_page.dart';
 import 'package:small_vectors/utility_classes/adaptive_dimension.dart';
 import 'package:small_vectors/utility_classes/utilities.dart';
 import 'package:small_vectors/utility_classes/navigation_bar.dart';
@@ -11,7 +12,11 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  //object reference variables
   late ScrollController _scrollController;
+
+  // ignore: prefer_final_fields
+  int _accumulatedVectors = 2;
 
   bool _isDropdownPressed = false;
 
@@ -47,6 +52,7 @@ class _HomePageState extends State<HomePage> {
 //for showing the modal sheet
   void _showModalSheet() {
     showModalBottomSheet(
+      isDismissible: false,
       context: context,
       builder: (context) {
         return Container(
@@ -56,8 +62,11 @@ class _HomePageState extends State<HomePage> {
           child: Column(
             children: [
               SizedBox(
+                height: MyAdaptiveDimension.getHeight(context) * .015,
+              ),
+              SizedBox(
                 height: MyAdaptiveDimension.getHeight(context) * .04,
-                child: const Text("2025 Vector Tree"),
+                child: const Text("2025 Vector Treeee"),
               ),
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
@@ -252,56 +261,76 @@ class _HomePageState extends State<HomePage> {
                     SizedBox(
                       height: MyAdaptiveDimension.getHeight(context) * .01,
                     ),
-                    // ignore: sized_box_for_whitespace
-                    Container(
-                      height: MyAdaptiveDimension.getHeight(context) * .1,
+                    //para mo balhin sya sa TriumphPage with swipe to left
+                    GestureDetector(
+                      onHorizontalDragEnd: (details) {
+                        if (details.primaryVelocity! < 0) {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const TriumphPage(),
+                            ),
+                          );
+                        }
+                      },
                       child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          SizedBox(
-                            height: MyAdaptiveDimension.horizontalSpaceGap(
-                                    context) *
-                                .35,
-                          ),
-                          const Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text("Your last victory was on: "),
-                              Text(
-                                "2025-01-23",
-                                style: TextStyle(
-                                  color: Colors.blue,
+                          // ignore: sized_box_for_whitespace
+                          Container(
+                            height: MyAdaptiveDimension.getHeight(context) * .1,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                SizedBox(
+                                  height:
+                                      MyAdaptiveDimension.horizontalSpaceGap(
+                                              context) *
+                                          .35,
                                 ),
-                              ),
-                            ],
-                          ),
-                          SizedBox(
-                            height: MyAdaptiveDimension.horizontalSpaceGap(
-                                    context) *
-                                .10,
-                          ),
-                          const Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text("You accumulated "),
-                              Text(
-                                "2",
-                                style: TextStyle(
-                                  color: Colors.blue,
+                                const Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text("Your last victory was on: "),
+                                    Text(
+                                      "2025-01-23",
+                                      style: TextStyle(
+                                        color: Colors.blue,
+                                      ),
+                                    ),
+                                  ],
                                 ),
-                              ),
-                              Text(" vectors within this week!"),
-                            ],
-                          ),
-                          SizedBox(
-                            height: MyAdaptiveDimension.horizontalSpaceGap(
-                                    context) *
-                                .35,
-                          ),
-                          const Text(
-                            "Good Job!",
-                            style: TextStyle(
-                              fontWeight: FontWeight.w700,
+                                SizedBox(
+                                  height:
+                                      MyAdaptiveDimension.horizontalSpaceGap(
+                                              context) *
+                                          .10,
+                                ),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    const Text("You accumulated "),
+                                    Text(
+                                      _accumulatedVectors.toString(),
+                                      style: const TextStyle(
+                                        color: Colors.blue,
+                                      ),
+                                    ),
+                                    const Text(" vectors within this week!"),
+                                  ],
+                                ),
+                                SizedBox(
+                                  height:
+                                      MyAdaptiveDimension.horizontalSpaceGap(
+                                              context) *
+                                          .35,
+                                ),
+                                const Text(
+                                  "Good Job!",
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w700,
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
                         ],
@@ -396,7 +425,7 @@ class _HomePageState extends State<HomePage> {
             ),
             Positioned(
               // left: MyAdaptiveDimension.getWidth(context) / 6.5,
-              bottom: 40,
+              bottom: 25,
               child: MyNavigationBar(0),
             )
           ],
