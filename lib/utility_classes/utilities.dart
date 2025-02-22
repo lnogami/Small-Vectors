@@ -7,7 +7,8 @@ class MyColorPallete {
   static const navBarColor = Color.fromARGB(255, 86, 142, 214);
   static const cardColor = Color.fromARGB(255, 227, 229, 240);
 
-  static const clickableIconColor = Color.fromARGB(255, 50, 144, 252);
+  static const callToActionButton = Color.fromARGB(255, 37, 157, 238);
+  static const clickableIconColor = Color.fromARGB(255, 37, 157, 238);
   static const unselectedIcon = Color.fromARGB(255, 195, 205, 218);
   static const selectedIcon = Color.fromARGB(255, 255, 255, 255);
   static const dissabled = Color.fromARGB(255, 159, 165, 173);

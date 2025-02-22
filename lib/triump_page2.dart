@@ -12,16 +12,26 @@ class TriumphPage2 extends StatefulWidget {
 }
 
 class TriumphPage2State extends State<TriumphPage2> {
-  // @override
+  @override
   // void initState() {
   //   super.initState();
   //   SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
+  //   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+  //     statusBarColor: Colors.transparent, // Ensures no black space at the top
+  //     systemNavigationBarColor:
+  //         Colors.transparent, // Ensures no black bar at the bottom
+  //   ));
   // }
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
+    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent, // Ensures no black space at the top
+      systemNavigationBarColor:
+          Colors.transparent, // Ensures no black bar at the bottom
+    ));
   }
 
   @override
@@ -83,13 +93,30 @@ class TriumphPage2State extends State<TriumphPage2> {
             ),
           ),
           Positioned(
+            top: 50,
+            child: SizedBox(
+              width: MyAdaptiveDimension.getWidth(context) * .60,
+              child: const Text(
+                "\"I am the captain of my ship, and the master of my fate\"",
+                softWrap: true,
+                style: TextStyle(fontStyle: FontStyle.italic),
+                textAlign: TextAlign.center,
+              ),
+            ),
+          ),
+          const Positioned(
             // left: MyAdaptiveDimension.getWidth(context) / 6.5,
             bottom: 80,
-            child: Container(
-              width: 80,
+            child: SizedBox(
               height: 30,
-              color: Colors.amber,
-              child: const Center(child: Text("Hello")),
+              child: Center(
+                child: Text(
+                  "My 2025 Triumph Tree",
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
+                ),
+              ),
             ),
           )
         ],

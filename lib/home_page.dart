@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:small_vectors/triumph_page.dart';
 import 'package:small_vectors/utility_classes/adaptive_dimension.dart';
 import 'package:small_vectors/utility_classes/utilities.dart';
@@ -30,6 +31,13 @@ class _HomePageState extends State<HomePage> {
   void didChangeDependencies() {
     super.didChangeDependencies();
     MyAdaptiveDimension.initiaizeDeviceDimension(context);
+
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
+    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent, // Ensures no black space at the top
+      systemNavigationBarColor:
+          Colors.transparent, // Ensures no black bar at the bottom
+    ));
   }
 
   @override
@@ -75,7 +83,7 @@ class _HomePageState extends State<HomePage> {
                     Container(
                       margin: const EdgeInsets.only(left: 15),
                       decoration: BoxDecoration(
-                        color: MyColorPallete.appBarColor,
+                        color: MyColorPallete.dissabled,
                         borderRadius: const BorderRadius.all(
                           Radius.circular(MyUniformSizes.contentsBorderRadius),
                         ),
@@ -95,7 +103,7 @@ class _HomePageState extends State<HomePage> {
                     Container(
                       margin: const EdgeInsets.only(left: 15),
                       decoration: BoxDecoration(
-                        color: MyColorPallete.appBarColor,
+                        color: MyColorPallete.dissabled,
                         borderRadius: const BorderRadius.all(
                           Radius.circular(MyUniformSizes.contentsBorderRadius),
                         ),
@@ -116,12 +124,31 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               const Spacer(),
-              ElevatedButton(
-                onPressed: () {
+              InkWell(
+                borderRadius: BorderRadius.circular(50),
+                onTap: () {
                   Navigator.pop(context);
                   setState(() => _isDropdownPressed = false);
                 },
-                child: const Text("Close"),
+                child: Container(
+                  width: MyAdaptiveDimension.getWidth(context) * .25,
+                  height: MyAdaptiveDimension.getWidth(context) * .13,
+                  decoration: const BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: MyColorPallete.dissabled,
+                        blurRadius: 1.0,
+                        spreadRadius: 0.5,
+                        offset: Offset(0.0, 1.0),
+                      )
+                    ],
+                    color: MyColorPallete.appBarColor,
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(50),
+                    ),
+                  ),
+                  child: const Center(child: Text("Close")),
+                ),
               ),
               const Spacer(),
             ],
