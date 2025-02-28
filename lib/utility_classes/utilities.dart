@@ -8,6 +8,11 @@ class MyColorPallete {
   static const cardColor = Color.fromARGB(255, 227, 229, 240);
 
   static const callToActionButton = Color.fromARGB(255, 37, 157, 238);
+  static const cancelButton = Color.fromARGB(148, 255, 239, 239);
+  // static const confirmButton = Color.fromARGB(255, 0, 255, 0);
+  static const deleteButton = Color.fromARGB(255, 188, 101, 101);
+  // static const editButton = Color.fromARGB(255, 255, 255, 0);
+  static const semiTransparent = Color.fromARGB(230, 173, 212, 237);
   static const clickableIconColor = Color.fromARGB(255, 37, 157, 238);
   static const unselectedIcon = Color.fromARGB(255, 195, 205, 218);
   static const selectedIcon = Color.fromARGB(255, 255, 255, 255);

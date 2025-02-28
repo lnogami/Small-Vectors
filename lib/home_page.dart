@@ -51,7 +51,7 @@ class _HomePageState extends State<HomePage> {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _scrollController.animateTo(
         _scrollController.position.maxScrollExtent,
-        duration: const Duration(seconds: 3),
+        duration: const Duration(seconds: 1),
         curve: Curves.easeInOut,
       );
     });

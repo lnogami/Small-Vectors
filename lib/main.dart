@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:small_vectors/home_page.dart';
+import 'package:small_vectors/utility_classes/utilities.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized(); // Ensure bindings are initialized
@@ -24,8 +25,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-            seedColor: const Color.fromARGB(255, 29, 160, 32)),
+        colorScheme:
+            ColorScheme.fromSeed(seedColor: MyColorPallete.appBarColor),
         useMaterial3: true,
       ),
       home: const HomePage(),
