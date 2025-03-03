@@ -373,53 +373,57 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                     SizedBox(
-                        width: MyAdaptiveDimension.getWidth(context) * .90,
-                        height: MyAdaptiveDimension.getHeight(context) * .42,
-                        child: Scrollbar(
-                          // thumbVisibility: true,
-                          radius: const Radius.circular(30),
-                          trackVisibility: true,
-                          child: ListView.builder(
-                            itemCount: 30,
-                            reverse: true,
-                            controller: _scrollController,
-                            itemBuilder: (context, index) {
-                              return Card(
-                                child: ListTile(
-                                  title: Column(
-                                    children: [
-                                      Text(
-                                        "Victory $index",
-                                        style: const TextStyle(
-                                          fontSize: 20,
-                                          fontWeight: FontWeight.bold,
-                                        ),
+                      width: MyAdaptiveDimension.getWidth(context) * .90,
+                      height: MyAdaptiveDimension.getHeight(context) * .42,
+                      child: Scrollbar(
+                        // thumbVisibility: true,
+                        radius: const Radius.circular(30),
+                        trackVisibility: true,
+                        child: ListView.builder(
+                          itemCount: 30,
+                          reverse: true,
+                          controller: _scrollController,
+                          itemBuilder: (context, index) {
+                            return Card(
+                              child: ListTile(
+                                title: Column(
+                                  children: [
+                                    Text(
+                                      "Victory $index",
+                                      style: const TextStyle(
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold,
                                       ),
-                                      const Text(
-                                        "Date: 2021-10-10",
-                                        style: TextStyle(fontSize: 12),
-                                      ),
-                                    ],
-                                  ),
-                                  leading: const Icon(
-                                    Icons.emoji_events_rounded,
-                                    color: Color.fromARGB(255, 244, 196, 51),
-                                  ),
-                                  trailing: const Icon(Icons.arrow_forward_ios),
-                                  onTap: () {
-                                    // Navigator.push(
-                                    //   context,
-                                    //   MaterialPageRoute(
-                                    //     builder: (context) => DetailScreen(),
-                                    //   ),
-                                    // );
-                                  },
+                                    ),
+                                    const Text(
+                                      "Date: 2021-10-10",
+                                      style: TextStyle(fontSize: 12),
+                                    ),
+                                  ],
                                 ),
-                              );
-                            },
-                          ),
-                        )),
-                    // const Spacer(),
+                                leading: const Icon(
+                                  Icons.emoji_events_rounded,
+                                  color: Color.fromARGB(255, 244, 196, 51),
+                                ),
+                                trailing: const Icon(Icons.arrow_forward_ios),
+                                onTap: () {
+                                  // Navigator.push(
+                                  //   context,
+                                  //   MaterialPageRoute(
+                                  //     builder: (context) => DetailScreen(),
+                                  //   ),
+                                  // );
+                                },
+                              ),
+                            );
+                          },
+                        ),
+                      ),
+                    ),
+
+                    SizedBox(
+                      height: MyAdaptiveDimension.getHeight(context) * .4,
+                    ),
                   ],
                 ),
               ),
